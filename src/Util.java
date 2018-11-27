@@ -157,6 +157,6 @@ public class Util {
             stringMedia = stringMedia + caracter;
         }
 
-        return stringMedia;
+        return stringMedia.replace('.',',');
     }
 }
