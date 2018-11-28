@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class BuckSort {
@@ -7,27 +6,34 @@ public class BuckSort {
 
     private CountForMetodos count = new CountForMetodos();
 
-    private long time = 0;
 
-    private static BubbleSort bubbleSort = null;
+    private static BuckSort buckSort = null;
 
-    public static BubbleSort getInstance(){
-        if (bubbleSort == null){
-            bubbleSort = new BubbleSort();
+    public static BuckSort getInstance(){
+        if (buckSort == null){
+            buckSort = new BuckSort();
         }
-        return bubbleSort;
+        return buckSort;
     }
 
-    public void BucketSort(int[] vetor, int maiorValor)
+    public void bucketSort(int[] vetor)
     {
+        int maiorValor = 0;
+        //Apenas pegando os valores para achar o maior, nao contando como comparacao do metodo
+        for (int number:vetor) {
+            if (number > maiorValor){
+                maiorValor = number;
+            }
+        }
         int numBaldes = maiorValor/5;
 
         LinkedList[] B = new LinkedList[numBaldes];
 
-        time = System.currentTimeMillis();
+
 
         for (int i = 0; i < numBaldes; i++){
             B[i] = new LinkedList<Integer>();
+            count.coutCiclo();
         }
 
         //Coloca os valores no balde respectivo:
@@ -42,8 +48,9 @@ public class BuckSort {
                     break;
                 }
                 j--;
-                count.coutCiclo();
+                count.somarCountsCiclos(2);
             }
+            count.coutCiclo();
         }
 
         //Ordena e atualiza o vetor:
@@ -55,6 +62,7 @@ public class BuckSort {
             //Coloca cada balde num vetor:
             for (int j = 0; j < aux.length; j++){
                 aux[j] = (Integer)B[i].get(j);
+                count.coutCiclo();
             }
 
             InsertSort.getInstance().insertionSort(aux); //algoritmo escolhido para ordenação.
@@ -62,12 +70,13 @@ public class BuckSort {
             // Devolve os valores ao vetor de entrada:
             for (int j = 0; j < aux.length; j++, indice++){
                 vetor[indice] = aux[j];
+                count.coutCiclo();
             }
-
+            count.coutCiclo();
         }
 
-        time = System.currentTimeMillis() - time;
 
+        count.insertCountInList(vetor,count);
 
 
     }
@@ -80,12 +89,11 @@ public class BuckSort {
         this.name = name;
     }
 
-    public long getTime() {
-        return time;
+    public CountForMetodos getCount() {
+        return count;
     }
 
-    public void setTime(long time) {
-        this.time = time;
+    public void setCount(CountForMetodos count) {
+        this.count = count;
     }
-
 }

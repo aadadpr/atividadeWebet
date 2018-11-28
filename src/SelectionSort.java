@@ -3,14 +3,9 @@ import java.util.ArrayList;
 public class SelectionSort {
 
     private String name = "Selection";
-    private long time = 0;
 
-    private ArrayList<Long> listTime5 = new ArrayList<>();
-    private ArrayList<Long> lisTime10 = new ArrayList<>();
-    private ArrayList<Long> listTime50 = new ArrayList<>();
-    private ArrayList<Long> listTime100 = new ArrayList<>();
-    private ArrayList<Long> listTime1000 = new ArrayList<>();
-    private ArrayList<Long> listTime10000 = new ArrayList<>();
+    private CountForMetodos count = new CountForMetodos();
+
 
     public static SelectionSort selectionSort = null;
 
@@ -21,27 +16,30 @@ public class SelectionSort {
         return selectionSort;
     }
 
-    void selectionSort(int numbers[], int array_size)
+    public void selectionSort(int arr[])
     {
-        time = System.currentTimeMillis();
-        int i, j;
-        int min, temp;
-        for (i = 0; i < array_size-1; i++)
+        int n = arr.length;
+
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
         {
-            min = i;
-            for (j = i+1; j < array_size; j++)
-            {
-                if (numbers[j] < numbers[min])
-                    min = j;
+            count.coutCiclo();
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++){
+                count.coutCiclo();
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
             }
-            temp = numbers[i];
-            numbers[i] = numbers[min];
-            numbers[min] = temp;
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
         }
 
-        time = System.currentTimeMillis() - time;
-
-
+        count.insertCountInList(arr, count);
 
     }
 
@@ -54,11 +52,11 @@ public class SelectionSort {
         this.name = name;
     }
 
-    public long getTime() {
-        return time;
+    public CountForMetodos getCount() {
+        return count;
     }
 
-    public void setTime(long time) {
-        this.time = time;
+    public void setCount(CountForMetodos count) {
+        this.count = count;
     }
 }

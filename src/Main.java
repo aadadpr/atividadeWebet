@@ -25,10 +25,17 @@ public class Main {
             heapSort.heapSort(vetor);
             insertSort.insertionSort(vetor);
             mergeSort.mergeSort(vetor);
+
+
+            quickSort.quicksort(vetor,0,vetor.length -1);
+            selectionSort.selectionSort(vetor);
+
+            countingSort.countingSort(vetor);
+            buckSort.bucketSort(vetor);
 //            radixSort.radixSort(vetor, vetor.length);
         }
 
-        Util.getInstance().generateCsvFile("C:\\Users\\Duarte\\Desktop\\projetos\\Dados.csv",bubbleSort,heapSort,insertSort,mergeSort);
+        Util.getInstance().generateCsvFile("C:\\Users\\Duarte\\Desktop\\projetos\\Dados.csv",bubbleSort,heapSort,insertSort,mergeSort, countingSort,buckSort,quickSort,selectionSort);
 
         System.out.println("Finish!!!");
     }
