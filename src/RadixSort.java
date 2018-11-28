@@ -38,9 +38,6 @@ public class RadixSort {
         // Store count of occurrences in count[]
         n = n -1;
         for (i = 0; i < n; i++)
-            System.out.println("iiiiiiiiiiii------"+i);
-
-            System.out.println("arr------"+arr.length);
 
             count[ (arr[i]/exp)%10 ]++;
 

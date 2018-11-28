@@ -48,62 +48,62 @@ public class Util {
 
             writer.append(bubbleSort.getName());
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getListTime5()));
+            writer.append(getMedia(bubbleSort.getCount().getListTime5()));
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getLisTime10()));
+            writer.append(getMedia(bubbleSort.getCount().getLisTime10()));
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getListTime50()));
+            writer.append(getMedia(bubbleSort.getCount().getListTime50()));
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getListTime100()));
+            writer.append(getMedia(bubbleSort.getCount().getListTime100()));
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getListTime1000()));
+            writer.append(getMedia(bubbleSort.getCount().getListTime1000()));
             writer.append(';');
-            writer.append(getMedia(bubbleSort.getListTime10000()));
+            writer.append(getMedia(bubbleSort.getCount().getListTime10000()));
             writer.append('\n');
 
             writer.append(heapSort.getName());
             writer.append(';');
-            writer.append(getMedia(heapSort.getListTime5()));
+            writer.append(getMedia(heapSort.getCount().getListTime5()));
             writer.append(';');
-            writer.append(getMedia(heapSort.getLisTime10()));
+            writer.append(getMedia(heapSort.getCount().getLisTime10()));
             writer.append(';');
-            writer.append(getMedia(heapSort.getListTime50()));
+            writer.append(getMedia(heapSort.getCount().getListTime50()));
             writer.append(';');
-            writer.append(getMedia(heapSort.getListTime100()));
+            writer.append(getMedia(heapSort.getCount().getListTime100()));
             writer.append(';');
-            writer.append(getMedia(heapSort.getListTime1000()));
+            writer.append(getMedia(heapSort.getCount().getListTime1000()));
             writer.append(';');
-            writer.append(getMedia(heapSort.getListTime10000()));
+            writer.append(getMedia(heapSort.getCount().getListTime10000()));
             writer.append('\n');
 
             writer.append(insertSort.getName());
             writer.append(';');
-            writer.append(getMedia(insertSort.getListTime5()));
+            writer.append(getMedia(insertSort.getCount().getListTime5()));
             writer.append(';');
-            writer.append(getMedia(insertSort.getLisTime10()));
+            writer.append(getMedia(insertSort.getCount().getLisTime10()));
             writer.append(';');
-            writer.append(getMedia(insertSort.getListTime50()));
+            writer.append(getMedia(insertSort.getCount().getListTime50()));
             writer.append(';');
-            writer.append(getMedia(insertSort.getListTime100()));
+            writer.append(getMedia(insertSort.getCount().getListTime100()));
             writer.append(';');
-            writer.append(getMedia(insertSort.getListTime1000()));
+            writer.append(getMedia(insertSort.getCount().getListTime1000()));
             writer.append(';');
-            writer.append(getMedia(insertSort.getListTime10000()));
+            writer.append(getMedia(insertSort.getCount().getListTime10000()));
             writer.append('\n');
 
             writer.append(mergeSort.getName());
             writer.append(';');
-            writer.append(getMedia(mergeSort.getListTime5()));
+            writer.append(getMedia(mergeSort.getCount().getListTime5()));
             writer.append(';');
-            writer.append(getMedia(mergeSort.getLisTime10()));
+            writer.append(getMedia(mergeSort.getCount().getLisTime10()));
             writer.append(';');
-            writer.append(getMedia(mergeSort.getListTime50()));
+            writer.append(getMedia(mergeSort.getCount().getListTime50()));
             writer.append(';');
-            writer.append(getMedia(mergeSort.getListTime100()));
+            writer.append(getMedia(mergeSort.getCount().getListTime100()));
             writer.append(';');
-            writer.append(getMedia(mergeSort.getListTime1000()));
+            writer.append(getMedia(mergeSort.getCount().getListTime1000()));
             writer.append(';');
-            writer.append(getMedia(mergeSort.getListTime10000()));
+            writer.append(getMedia(mergeSort.getCount().getListTime10000()));
             writer.append('\n');
 
 
@@ -141,7 +141,7 @@ public class Util {
         int contador = 0;
 
         for (Long item:list) {
-            media = media + (item.doubleValue()/1000.00);
+            media = media + (item.doubleValue());
         }
 
         media = media / list.size();
@@ -156,6 +156,8 @@ public class Util {
                 break;
             stringMedia = stringMedia + caracter;
         }
+
+        stringMedia = media.toString();
 
         return stringMedia.replace('.',',');
     }
