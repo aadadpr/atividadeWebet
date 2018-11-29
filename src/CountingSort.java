@@ -25,10 +25,10 @@ public class CountingSort {
             }
             count.coutCiclo();
         }
-
+        maior = maior-1;
 // frequencia
         int[] c = new int[maior];
-        for (int i = 0; i < v.length; i++) {
+        for (int i = 0; i < v.length - 1; i++) {
             c[v[i] - 1] += 1;
             count.coutCiclo();
         }
@@ -43,7 +43,7 @@ public class CountingSort {
             c[v[i] - 1]--;
             count.coutCiclo();
         }
-        for (int i = 0; i < b.length; i++) {
+        for (int i = 0; i < b.length -1; i++) {
 
             v[i] = b[i];
             count.coutCiclo();

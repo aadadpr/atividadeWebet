@@ -29,13 +29,14 @@ public class Main {
 
             quickSort.quicksort(vetor,0,vetor.length -1);
             selectionSort.selectionSort(vetor);
+                //Counting removido por conta do tempo para entrega do trabalho
+//            countingSort.countingSort(vetor);
 
-            countingSort.countingSort(vetor);
-            buckSort.bucketSort(vetor);
+//            buckSort.bucketSort(vetor);
 //            radixSort.radixSort(vetor, vetor.length);
         }
 
-        Util.getInstance().generateCsvFile("C:\\Users\\Duarte\\Desktop\\projetos\\Dados.csv",bubbleSort,heapSort,insertSort,mergeSort, countingSort,buckSort,quickSort,selectionSort);
+        Util.getInstance().generateCsvFile("C:\\Users\\Duarte\\Desktop\\projetos\\Dados.csv",bubbleSort,heapSort,insertSort,mergeSort,quickSort,selectionSort);
 
         System.out.println("Finish!!!");
     }
@@ -44,6 +45,7 @@ public class Main {
     public static ArrayList<int[]> gerarVetores(int quantidade){
 
         ArrayList<int[]> list = new ArrayList<>();
+        int bound = 100;
 
         for(int i = 0; i < quantidade; i++){
             Random gerar = new Random();
@@ -51,42 +53,42 @@ public class Main {
                 case 1:
                     int vec[] = new int[5];
                         for(int j = 0; j < vec.length; j++){
-                            vec[j] = gerar.nextInt();
+                            vec[j] = gerar.nextInt(5);
                         }
                     list.add(vec);
                     break;
                 case 2:
                     int vec2[] = new int[10];
                     for(int j = 0; j < vec2.length; j++){
-                        vec2[j] = gerar.nextInt();
+                        vec2[j] = gerar.nextInt(10);
                     }
                     list.add(vec2);
                     break;
                 case 3:
                     int vec3[] = new int[50];
                     for(int j = 0; j < vec3.length; j++){
-                        vec3[j] = gerar.nextInt();
+                        vec3[j] = gerar.nextInt(50);
                     }
                     list.add(vec3);
                     break;
                 case 4:
                     int vec4[] = new int[100];
                     for(int j = 0; j < vec4.length; j++){
-                        vec4[j] = gerar.nextInt();
+                        vec4[j] = gerar.nextInt(100);
                     }
                     list.add(vec4);
                     break;
                 case 5:
                     int vec5[] = new int[1000];
                     for(int j = 0; j < vec5.length; j++){
-                        vec5[j] = gerar.nextInt();
+                        vec5[j] = gerar.nextInt(1000);
                     }
                     list.add(vec5);
                     break;
                  case 6:
                      int vec6[] = new int[10000];
                      for(int j = 0; j < vec6.length; j++){
-                         vec6[j] = gerar.nextInt();
+                         vec6[j] = gerar.nextInt(10000);
                      }
                      list.add(vec6);
                      break;

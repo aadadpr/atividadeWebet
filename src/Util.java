@@ -21,7 +21,7 @@ public class Util {
         return v;
     }
 
-    public void generateCsvFile(String sFileName, BubbleSort bubbleSort, HeapSort heapSort, InsertSort insertSort, MergeSort mergeSort,  CountingSort countingSort, BuckSort buckSort,QuickSort quickSort, SelectionSort selectionSort)
+    public void generateCsvFile(String sFileName, BubbleSort bubbleSort, HeapSort heapSort, InsertSort insertSort, MergeSort mergeSort, QuickSort quickSort, SelectionSort selectionSort)
     {
         if(!sFileName.contains(".csv")){
             sFileName.concat(".csv");
@@ -106,35 +106,35 @@ public class Util {
             writer.append(getMedia(mergeSort.getCount().getListTime10000()));
             writer.append('\n');
 
-            writer.append(countingSort.getName());
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getListTime5()));
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getLisTime10()));
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getListTime50()));
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getListTime100()));
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getListTime1000()));
-            writer.append(';');
-            writer.append(getMedia(countingSort.getCount().getListTime10000()));
-            writer.append('\n');
-
-            writer.append(buckSort.getName());
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getListTime5()));
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getLisTime10()));
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getListTime50()));
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getListTime100()));
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getListTime1000()));
-            writer.append(';');
-            writer.append(getMedia(buckSort.getCount().getListTime10000()));
-            writer.append('\n');
+//            writer.append(countingSort.getName());
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getListTime5()));
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getLisTime10()));
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getListTime50()));
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getListTime100()));
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getListTime1000()));
+//            writer.append(';');
+//            writer.append(getMedia(countingSort.getCount().getListTime10000()));
+//            writer.append('\n');
+//
+//            writer.append(buckSort.getName());
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getListTime5()));
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getLisTime10()));
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getListTime50()));
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getListTime100()));
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getListTime1000()));
+//            writer.append(';');
+//            writer.append(getMedia(buckSort.getCount().getListTime10000()));
+//            writer.append('\n');
 
             writer.append(quickSort.getName());
             writer.append(';');
