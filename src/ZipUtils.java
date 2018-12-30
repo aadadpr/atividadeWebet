@@ -229,17 +229,6 @@ public final class ZipUtils {
                 copy(zip, saida, checksum);
                 saida.close();
 
-                if(arquivo.getName().contains("cadsite")){
-
-                    BufferedReader br = new BufferedReader(new FileReader(archivMap.get("cadsite")));
-                    while(br.ready()){
-                        String linha = br.readLine();
-                        System.out.println(linha);
-                    }
-                    br.close();
-                }
-
-
             }
 
 //            arquivo.delete();
@@ -247,114 +236,68 @@ public final class ZipUtils {
 
         validatingData(archivMap);
 
-//        BufferedReader br = new BufferedReader(new FileReader(archivMap.get("pdvs")));
-//                    String linha = br.readLine();
-//                    System.out.println(linha);
-//
-//                br.close();
-
     }
 
     private static void validatingData(HashMap<String,File> map){
-        File file;
 
-        ArrayList<String> lines = new ArrayList<>();
+        ArrayList<String> lines;
     try{
-        FileWriter writer = new FileWriter("CSV");
+        FileWriter writer = new FileWriter("E:\\Downloads\\STK DE\\DELLAS\\lalalend\\CSV.csv");
 
-//        TIPO_EMISSAO	TIPO_DOCUMENTO	NUMERO_NOTA	VALOR_NOTA	DATA_EMISSAO	DATA_VENCIMENTO	NOME_SOLICITANTE	EMAIL_SOLICITANTE	NUMERO_PEDIDO	NATUREZA_COMPRA	INSS
-
-        writer.append("TIPO_EMISSAO");
+        writer.append("ID_ERP_RESELL");
         writer.append(';');
-        writer.append("TIPO_DOCUMENTO");
+        writer.append("DAY_SELL");
         writer.append(';');
-        writer.append("NUMERO_NOTA");
+        writer.append("MONTH_SELL");
         writer.append(';');
-        writer.append("VALOR_NOTA");
+        writer.append("YEAR_SELL");
         writer.append(';');
-        writer.append("DATA_EMISSAO");
+        writer.append("ID_CAI_PRODUCT");
         writer.append(';');
-        writer.append("DATA_VENCIMENTO");
+        writer.append("QUANTITY_SELL");
         writer.append(';');
-        writer.append("NOME_SOLICITANTE");
+        writer.append("UNIT_PRICE_PRODUCT");
         writer.append(';');
-        writer.append("EMAIL_SOLICITANTE");
+        writer.append("TP_CUSTOMER");
         writer.append(';');
-        writer.append("NUMERO_PEDIDO");
+        writer.append("ID_CUSTOMER");
         writer.append(';');
-        writer.append("NATUREZA_COMPRA");
+        writer.append("NM_CUSTOMER");
         writer.append(';');
-        writer.append("INSS");
+        writer.append("STATE_CUSTOMER");
+        writer.append(';');
+        writer.append("CITY_CUSTOMER");
+        writer.append(';');
+        writer.append("ZIPCODE_CUSTOMER");
+        writer.append(';');
+        writer.append("ADDRESS_CUSTOMER");
+        writer.append(';');
+        writer.append("ADDRESS_EXTRA_CUSTOMER");
+        writer.append(';');
+        writer.append("NEIGHBORHOOD_CUSTOMER");
+        writer.append(';');
+        writer.append("PHONE_COUNTRY_CODE_CUSTOMER");
+        writer.append(';');
+        writer.append("PHONE_AREA_CODE_CUSTOMER");
+        writer.append(';');
+        writer.append("PHONE_CUSTOMER");
+        writer.append(';');
+        writer.append("CELLPHONE_COUNTRY_CODE_CUSTOMER");
+        writer.append(';');
+        writer.append("CELLPHONE_AREA_CODE_CUSTOMER");
+        writer.append(';');
+        writer.append("CELLPHONE_CUSTOMER");
+        writer.append(';');
+        writer.append("EMAIL_CUSTOMER");
+        writer.append(';');
+        writer.append("NM_SELLER");
+        writer.append(';');
+        writer.append("ADDITIONAL");
         writer.append('\n');
 
         String idGrup = "";
-
-//        String idGrup = getIdGroupFile(map.get("cadsite"));
-//        String idCadProd = getIdGroupFile(map.get("cadprod"));
-//        String idPosestq = getIdGroupFile(map.get("posestq"));
-//        String idSellOut = getIdGroupFile(map.get("sellout"));
-//        String idPdv = getIdGroupFile(map.get("pdv"));
-//
-//        if(idCadProd.equals(idGrup) && idPosestq.equals(idGrup) && idSellOut.equals(idGrup) && idPdv.equals(idGrup)){
-//
-//            HashMap<String, String[]> linhas = new HashMap<>();
-//            String linhaProd = "";
-//            String linhaPosestq = "";
-//            String linhaSellOut = "";
-//            String linhaPdv = "";
-//
-//
-//            Set<String> listCais	=	new LinkedHashSet<>();
-////        ArrayList<String> listCais = new ArrayList<>();
-//            try{
-//
-//                BufferedReader brProd = new BufferedReader(new FileReader(map.get("cadprod")));
-//                BufferedReader brPosestq = new BufferedReader(new FileReader(map.get("posestq")));
-//                BufferedReader brSellOut = new BufferedReader(new FileReader(map.get("sellout")));
-//                BufferedReader brPdv = new BufferedReader(new FileReader(map.get("pdv")));
-//
-//
-//
-//
-//                    //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
-//                    while(     (linhaProd = brProd.readLine()) != null
-//                            || (linhaPosestq = brPosestq.readLine()) != null
-//                            || (linhaSellOut = brSellOut.readLine()) != null
-//                            || (linhaPdv = brPdv.readLine()) != null){
-//                        if(linhaProd != null && !linhaProd.equals("")){
-//                            String[] camposLinhaProd = linhaProd.split(";");
-//
-//                        }
-//
-//                        if(linhaPosestq != null && !linhaPosestq.equals("")){
-//                            String[] camposLinhaPosestq = linhaPosestq.split(";");
-//
-//                        }
-//
-//                        if(linhaSellOut != null && !linhaSellOut.equals("")){
-//                            String[] camposLinhaSellOut = linhaSellOut.split(";");
-//
-//                        }
-//
-//                        if(linhaPdv != null && !linhaPdv.equals("")){
-//                            String[] camposLinhaPdv = linhaPdv.split(";");
-//
-//                        }
-//
-//                    }
-//
-//
-//            } catch(IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-//
-//        }
-
-
-        validatingDataCadSite(map.get("cadsite"), writer, idGrup);
-        lines = validatingDataSellOut(map.get("sellout"),map.get("pdvs"),writer,idGrup);
+        idGrup = validatingDataCadSite(map.get("cadsite"), writer);
+        lines = validatingDataSellOut(map.get("sellout"),map.get("pdvs"),idGrup);
 
         for(String line : lines){
             writer.append(line);
@@ -363,6 +306,11 @@ public final class ZipUtils {
         writer.flush();
         writer.close();
 
+        for(Map.Entry<String, File> entry : map.entrySet()) {
+            File file = entry.getValue();
+            file.delete();
+        }
+
 
     }
     catch(IOException e)
@@ -370,132 +318,106 @@ public final class ZipUtils {
         e.printStackTrace();
     }
 
-
-
-
-
-
     }
 
-//    private static String getIdGroupFile(File file){
-//        String linha;
-//        String idGrup = "";
-//        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//            //Pegando o identificador de grupo de arquivos que esta na primeira linha de cada TXT
-//            linha = br.readLine();
-//            idGrup = linha.split(";")[1];
-//            System.out.println("CadSite");
-//        } catch(IOException e) {
-//            e.printStackTrace();
-//        }
-//        return  idGrup;
-//    }
 
-    private static void validatingDataCadSite(File file,FileWriter writer,String idGrup){
+    private static String validatingDataCadSite(File file,FileWriter writer){
+        String idGrup = "";
         String linha;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            //Pegando o identificador de grupo de arquivos que esta na primeira linha de cada TXT
+            linha = br.readLine();
+            idGrup = linha.split(";")[1];
 
-//            linha = br.readLine();
-//            linha = br.readLine();
-
-            while(br.ready()){
-                linha = br.readLine();
-                System.out.println(linha);
-            }
-
-//            while (linha.split(";").length < 3){
-//                linha = br.readLine();
-//                idGrup = linha.split(";")[1];
-//            }
             System.out.println("CadSite");
         } catch(IOException e) {
             e.printStackTrace();
         }
+        return idGrup;
     }
 
-    private static ArrayList<String> validatingDataSellOut(File fileSellOut,File filePdv,FileWriter writer,String idGrup){
+    private static ArrayList<String> validatingDataSellOut(File fileSellOut,File filePdv,String idGrup){
 
 
-        ArrayList<String> listLinesCsv = new ArrayList<>();
-        HashMap<String, String[]> listLinesPdv = new HashMap<>();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date data;
-
+        ArrayList<String> listFormatedItens = new ArrayList<>();
+        HashMap<String, String[]> listLinesPdv;
+        ArrayList<String> data;
 
         String linhaFile;
-        String idErp = "";
+        String idErp = "9258227";
         String daySell;
         String monsthSell;
         String yearSell;
-        String cnpjResell;
-
+//        String cnpjResell;
         String idCai;
         String qtdSell;
         String vlSell;
-        String tpCustomer = "";
-        String idCustomer;
+        String tpCustomer = "J";
+        String idCustomer = "";
         String nmCustomer;
-
         String state;
         String cityCustomer;
         String zipcode;
         String addressCustomer;
-
         String additional;
-
         String idForPdv;
 
 
-//        String[] datasOfPdv;
-//        Set<String> listIdForPdv	=	new LinkedHashSet<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(fileSellOut))) {
             listLinesPdv = searchDataPdv(filePdv,idGrup);
-//            linhaFile = br.readLine();
             linhaFile = br.readLine();
             String idGrupFile = linhaFile.split(";")[1];
             //Valida se o arquivo pertence ao mesmo grupo
             if(idGrupFile.equals(idGrup)){
-
-
-
-                //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
+             //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
                 while((linhaFile = br.readLine()) != null){
                     String[] campos = linhaFile.split(";");
+                    if(campos.length > 1){
+                        idForPdv = campos[11];
+                        String[] camposPdv = listLinesPdv.get(idForPdv);
 
-                    idForPdv = campos[11];
-                    String[] camposPdv = listLinesPdv.get(idForPdv);
+//                        cnpjResell = campos[1];
 
-                    cnpjResell = campos[1];
-                    idCustomer = campos[2];
-                    //Deixando aplicando a mascara de cnpj ou cpf e identificando o tipo de pessoa
-                    formatIdCustomer(idCustomer,tpCustomer);
+                        idCustomer = campos[2];
+                        if(idCustomer.length() != 14)tpCustomer = "F";
 
-                    idCai = campos[3];
-                    qtdSell = campos[4];
+                        idCai = formatIdCai(campos[3]);
 
-                    //Para pegar o vlSell, devemos pegar o valor por unidade, dividindo o valor total pela total vendido
-                    int vlSellUnidade = Integer.parseInt(campos[5]);
-                    vlSell = String.valueOf(vlSellUnidade / Integer.parseInt(qtdSell));
 
-                    //O metodo formatDate e para deixar no padrao dd/MM/yyyy
-                    data = formato.parse(formatDate(campos[8]));
+                        /*
+                         * Para a quantidade vendida e o preco por unidade
+                         * primeiro se pega a quantidade vendida para logo apos
+                         * fazer o a divisao e obter o preco por unidade,
+                         * antes se remover os ultimos caracteres da quantidade vendida.
+                         * Isto foi feito para nao ser necessario remover os caracteres do preco por unidade.
+                         */
 
-                    daySell = String.valueOf(data.getDay());
-                    monsthSell = String.valueOf(data.getMonth());
-                    yearSell = String.valueOf(data.getYear());
+                        qtdSell = campos[4];
+                        //Para pegar o vlSell, devemos pegar o valor por unidade, dividindo o valor total pela total vendido
+                        int vlSellUnidade = Integer.parseInt(campos[5]);
+                        vlSell = String.valueOf(vlSellUnidade / Integer.parseInt(qtdSell));
+                        //Removendo os 3 ultimos caracteres da quantidade vendida
+                        qtdSell = qtdSell.substring(0, qtdSell.length() - 3);
 
-                    nmCustomer = campos[12];
+                        //O metodo formatDate e para deixar no padrao dd/MM/yyyy
+                        data = formatDate(campos[8]);
 
-                    state = camposPdv[6];
-                    cityCustomer = camposPdv[7];
-                    addressCustomer = camposPdv[8] + camposPdv[9] + camposPdv[10] + camposPdv[11];
-                    zipcode = camposPdv[16];
+                        daySell = data.get(0);
+                        monsthSell = data.get(1);
+                        yearSell = data.get(2);
 
-                    additional = campos[15];
+                        nmCustomer = campos[12];
 
-                    listLinesCsv.add(idErp + ";" +daySell + ";" +monsthSell + ";" +yearSell + ";" +idCai + ";" +qtdSell + ";" +vlSell + ";" +tpCustomer + ";" +idCustomer + ";" +nmCustomer + ";" +state + ";" +cityCustomer
-                            + ";" +zipcode + ";" +addressCustomer + ";" +additional);
+                        state = camposPdv[6];
+                        cityCustomer = camposPdv[7];
+                        addressCustomer = camposPdv[8] + camposPdv[9] + camposPdv[10] + camposPdv[11];
+                        zipcode = camposPdv[16];
+
+                        additional = campos[15];
+
+                        listFormatedItens.add(idErp + ";" +daySell + ";" +monsthSell + ";" +yearSell + ";" +idCai + ";" +qtdSell + ";" +vlSell +";" +tpCustomer + ";" +idCustomer + ";" +nmCustomer + ";" +state + ";" +cityCustomer
+                                + ";" +zipcode + ";" +addressCustomer + ";;;;;;;;;;;" +additional);
+                    }
 
                 }
 
@@ -505,67 +427,50 @@ public final class ZipUtils {
 
         } catch(IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
-        return  listLinesCsv;
+        return  listFormatedItens;
     }
 
-
-    private static String formatDate(String date){
-
+    private static ArrayList<String> formatDate(String date){
+        ArrayList<String> listDate = new ArrayList<>();
         String year = "";
         String month = "";
         String day = "";
 
         for(char letter:date.toCharArray()){
-            if(year.toCharArray().length < 4){
-                year = year + letter;
+
+            if(day.toCharArray().length < 2 && month.toCharArray().length == 2){
+                day = day + letter;
             }
 
             if(month.toCharArray().length < 2 && year.toCharArray().length == 4){
                 month = month + letter;
             }
 
-            if(day.toCharArray().length < 2 && month.toCharArray().length == 2){
-                day = day + letter;
+            if(year.toCharArray().length < 4){
+                year = year + letter;
             }
         }
+        listDate.add(day);
+        listDate.add(month);
+        listDate.add(year);
 
-        return day + "/" + month + "/" + year;
+        return listDate;
     }
 
-    private static void formatIdCustomer(String idCustomer, String tpCustomer){
-        int count = 0;
-        String idCustomerFormated = "";
+    private static String formatIdCai(String idCai){
 
-        if(idCustomer.length() == 13){
-            tpCustomer = "F";
+        if(idCai.length() == 7) idCai = idCai.substring(0,idCai.length() - 1);
+        if(idCai.length() == 13) idCai = idCai.substring(idCai.length() - 6);
 
-            for(char letter:idCustomer.toCharArray()){
-
-                if(count == 2 || count == 5) idCustomerFormated = idCustomerFormated + ".";
-                if(count == 8) idCustomerFormated = idCustomerFormated + "/";
-                if(count == 12) idCustomerFormated = idCustomerFormated + "-";
-                idCustomerFormated = idCustomerFormated + letter;
-                count++;
+            while (idCai.length()<6){
+                idCai = "0"+idCai;
             }
 
-        }else{
-            tpCustomer = "J";
 
-            for(char letter:idCustomer.toCharArray()){
-
-                if(count == 3 || count == 6) idCustomerFormated = idCustomerFormated + ".";
-                if(count == 9) idCustomerFormated = idCustomerFormated + "-";
-                idCustomerFormated = idCustomerFormated + letter;
-                count++;
-            }
-        }
-
-        idCustomer = idCustomerFormated;
-
+        return idCai;
     }
+
 
     private static HashMap<String, String[]> searchDataPdv(File file, String idGrup){
         HashMap<String, String[]> listLines = new HashMap<>();
@@ -573,20 +478,19 @@ public final class ZipUtils {
         String linha;
         String idPdv;
 
-
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
             linha = br.readLine();
             String idGrupFile = linha.split(";")[1];
             //Valida se o arquivo pertence ao mesmo grupo
             if(idGrupFile.equals(idGrup)){
-
                 //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
                 while((linha = br.readLine()) != null){
                     String[] campos = linha.split(";");
-                    idPdv = campos[1];
-                    listLines.put(idPdv,campos);
-
+                    if(campos.length > 1){
+                        idPdv = campos[1];
+                        listLines.put(idPdv,campos);
+                    }
                 }
 
             }else{
@@ -599,99 +503,6 @@ public final class ZipUtils {
 
         return listLines;
     }
-
-//    private static Set<String> validatingDataCadProd(File file,FileWriter writer,String idGrup){
-//        String linha;
-//        Set<String> listCais	=	new LinkedHashSet<>();
-////        ArrayList<String> listCais = new ArrayList<>();
-//        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//
-//            linha = br.readLine();
-//            String idGrupFile = linha.split(";")[1];
-//            //Valida se o arquivo pertence ao mesmo grupo
-//            if(idGrupFile == idGrup){
-//
-//                //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
-//                while((linha = br.readLine()) != null){
-//                    String[] campos = linha.split(";");
-//
-//                    //CAI do produto
-//                    String cai = campos[3];
-//                    if(cai.length() <= 6){
-//                        //Implementar ida ao banco e validacao se existe
-//                        String paraCriar = "Implementar ida ao banco e validacao se existe";
-//                        if(paraCriar.equals("Implementar ida ao banco e validacao se existe")){
-//                            listCais.add(cai);
-//                        }else{
-//
-//                        }
-//                    }
-//
-//
-//
-//
-//
-//                }
-//
-//            }else{
-//
-//            }
-//
-//        } catch(IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return listCais;
-//    }
-
-//    private static void validatingDataPosestq(File file,FileWriter writer,String idGrup, ArrayList<String> listCais){
-//        String linha;
-//        Set<String> listCnpjCustomer	=	new LinkedHashSet<>();
-//        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//
-//            linha = br.readLine();
-//            String idGrupFile = linha.split(";")[1];
-//            //Valida se o arquivo pertence ao mesmo grupo
-//            if(idGrupFile == idGrup){
-//
-//                //Esse é o loop para percorrer as linhas do arquivo e fazer as validacoes de cada campo para o CSV
-//                while((linha = br.readLine()) != null){
-//                    String[] campos = linha.split(";");
-//
-//                    for (String cai:listCais) {
-//                        //Verifica se o CAI da coluna 3 da linha é igual ao CAI valido pego em cadProd
-//                        if(campos[3].equals(cai)){
-//                            //Pegando CNPJ do cliente
-//                            listCnpjCustomer.add(campos[2]);
-//                        }
-//                    }
-//
-//
-//                }
-//
-//            }else{
-//
-//            }
-//
-//        } catch(IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Construtor privado - Náo há razão em instanciar esta classe
     private ZipUtils() {}
